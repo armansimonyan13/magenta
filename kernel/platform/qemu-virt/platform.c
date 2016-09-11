@@ -96,7 +96,7 @@ struct mmu_initial_mapping mmu_initial_mappings[] = {
     { 0 }
 };
 
-static pmm_arena_t arena = {
+static pmm_arena_info_t arena = {
     .name = "ram",
     .base = MEMORY_BASE_PHYS,
     .size = DEFAULT_MEMORY_SIZE,

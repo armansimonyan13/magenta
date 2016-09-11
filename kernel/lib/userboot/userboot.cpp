@@ -69,7 +69,7 @@ static mxtl::RefPtr<VmObject> make_vmo_from_memory(const void* data,
             ASSERT(page);
 
             // make sure the page isn't already attached to another object
-            ASSERT(!list_in_list(&page->node));
+            ASSERT(page->state == VM_PAGE_STATE_WIRED);
 
             vmo->AddPage(page, count * PAGE_SIZE);
         }

@@ -9,6 +9,7 @@
 #include <assert.h>
 #include <kernel/mutex.h>
 #include <kernel/vm.h>
+#include <kernel/vm/vm_page_list.h>
 #include <list.h>
 #include <stdint.h>
 #include <mxtl/array.h>
@@ -97,6 +98,6 @@ private:
     uint32_t pmm_alloc_flags_ = PMM_ALLOC_FLAG_ANY;
     mutex_t lock_ = MUTEX_INITIAL_VALUE(lock_);
 
-    // array of page pointers, one per page offset into the object
-    mxtl::Array<vm_page_t*> page_array_;
+    // a tree of pages
+    VmPageList page_list_;
 };
